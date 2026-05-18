@@ -2,7 +2,9 @@
 services:
   # Laravel Backend (PHP-FPM)
   backend:
-    image: bitnami/php-fpm:latest
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     working_dir: /app
     volumes:
       - ./backend:/app
