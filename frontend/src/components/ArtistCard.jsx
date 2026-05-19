@@ -15,7 +15,7 @@ export default function ArtistCard({ artist }) {
       {/* Content Group */}
       <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
         <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-white tracking-wide">{artist.name}</h3>
+          <h3 className="text-xl font-bold text-white tracking-wide">{artist.name}</h3>
           
           {/* Dynamic Badges Group */}
           <div className="flex flex-wrap gap-1.5">
