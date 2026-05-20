@@ -28,7 +28,7 @@ export default function ArtistSection() {
     <section id="artists" className="space-y-8">
       {/* Header text group */}
       <div className="text-center space-y-2">
-        <h2 className="text-3xl font-normal font-serif tracking-tight text-white sm:text-4xl">Choose Your <span className="text-violet-400">Artist</span></h2>
+        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Meet Our <span className="text-violet-400">Artist</span></h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
           Browse our talented artists and find the perfect match for your next tattoo.
         </p>

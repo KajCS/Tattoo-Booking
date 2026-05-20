@@ -1,15 +1,6 @@
+import { RouterProvider } from "react-router";
+import { router } from "./routes";
 
-import './App.css'
-import CustomerDashboard from './pages/CustomerDashboard'
-
-function App() {
-
-
-  return (
-    <>
-    <CustomerDashboard />
-    </>
-  )
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App
