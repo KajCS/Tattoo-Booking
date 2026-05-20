@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Navbar() {
   return (
-    <nav className="border-b border-purple-950/40 bg-[#0d081b]/80 backdrop-blur-md sticky top-0 z-50">
+    <nav className="w-full border-b border-purple-900/20 bg-gradient-to-r from-[#0d081b] to-purple-950">
       <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold tracking-tight">
