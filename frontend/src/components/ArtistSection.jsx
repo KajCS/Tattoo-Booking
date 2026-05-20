@@ -7,19 +7,19 @@ const artists = [
     id: 1,
     name: 'Benz Pilapil',
     specialties: ['Traditional', 'Japanese', 'Black & Grey'],
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=600',
+    image: '../../public/artists/benz.webp',
   },
   {
     id: 2,
     name: 'Aryll Pilapil',
     specialties: ['Watercolor', 'Fine Line', 'Botanical'],
-    image: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&q=80&w=600',
+    image: '../../public/artists/aryll.jpg',
   },
   {
     id: 3,
-    name: 'Ken Cudal',
+    name: 'Nestor Tanudtanud',
     specialties: ['Geometric', 'Neo-Traditional', 'Realism'],
-    image: 'https://images.unsplash.com/photo-1590246814883-57f511e76523?auto=format&fit=crop&q=80&w=600',
+    image: '../../public/artists/hwizi-1.webp',
   },
 ];
 

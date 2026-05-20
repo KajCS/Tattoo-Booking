@@ -34,7 +34,7 @@ export default function StudioSection() {
             <div className="space-y-1">
               <h4 className="text-sm font-semibold tracking-wide text-slate-300">Address</h4>
               <p className="text-sm text-slate-400 leading-relaxed">
-                123 Ink Avenue, Studio 4B <br /> Studio City, CA 90210
+                347 Papaya St., Sto. Domingo II, Pampanga <br /> Davao City, Philippines
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function StudioSection() {
               </div>
               <div className="space-y-0.5">
                 <span className="block text-xs font-medium text-slate-400">Call Us</span>
-                <span className="text-sm font-semibold text-slate-200">(555) 987-6543</span>
+                <span className="text-sm font-semibold text-slate-200">+63 9383658321</span>
               </div>
             </div>
 

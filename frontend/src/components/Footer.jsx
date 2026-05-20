@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer className="border-t border-purple-950/40 bg-[#0a0514] text-slate-400 text-sm">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-2">
         
         {/* Core Link Columns Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
@@ -75,17 +75,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* Lower Metadata Border Block Row */}
-        <div className="border-t border-purple-950/40 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} YoshiCat. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <a href="#privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <a href="#terms" className="hover:text-slate-400 transition-colors">Terms of Service</a>
-            <a href="#cookies" className="hover:text-slate-400 transition-colors">Cookie Policy</a>
-          </div>
-        </div>
-
       </div>
     </footer>
   );
