@@ -25,35 +25,35 @@ const playfair = { fontFamily: "'Playfair Display', serif" };
 const todayAppointments = [
   {
     time: "10:00 AM",
-    client: "Jamie Torres",
+    client: "Sam Tesoro",
     style: "Japanese Sleeve",
     duration: "3h",
     status: "confirmed",
-    avatar: "JT",
+    avatar: "ST",
   },
   {
     time: "1:30 PM",
-    client: "Sam Rivera",
+    client: "Ej Liu",
     style: "Fine Line Floral",
     duration: "2h",
     status: "confirmed",
-    avatar: "SR",
+    avatar: "EL",
   },
   {
     time: "4:00 PM",
-    client: "Alex Kim",
+    client: "Brandon Santos",
     style: "Neo-Traditional",
     duration: "1.5h",
     status: "pending",
-    avatar: "AK",
+    avatar: "BS",
   },
   {
     time: "6:00 PM",
-    client: "Morgan Lee",
+    client: "Luis Palparan",
     style: "Blackwork Mandala",
     duration: "2h",
     status: "confirmed",
-    avatar: "ML",
+    avatar: "LP",
   },
 ];
 
@@ -131,27 +131,6 @@ const quickStats = [
     icon: CalendarDays,
     trend: "+1 vs yesterday",
   },
-  {
-    label: "Monthly Revenue",
-    value: "$6,840",
-    sub: "72% of monthly goal",
-    icon: DollarSign,
-    trend: "+18% vs last month",
-  },
-  {
-    label: "Pending Requests",
-    value: "3",
-    sub: "Respond within 24h",
-    icon: Clock,
-    trend: "2 new today",
-  },
-  {
-    label: "Repeat Clients",
-    value: "68%",
-    sub: "12 loyal clients",
-    icon: Users,
-    trend: "+5% vs last month",
-  },
 ];
 
 const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -184,58 +163,6 @@ export default function DashboardHome() {
   return (
     <div className="p-6 space-y-6 w-full">
       {/* Header */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-violet-400/70 text-sm mb-1">{greeting}, Yoshi ✦</p>
-          <h1 style={playfair} className="text-white">
-            Your Studio, Today
-          </h1>
-          <p className="text-violet-200/40 text-sm mt-1">
-            Tuesday, May 19, 2026 · Studio City, CA
-          </p>
-        </div>
-        <div className="flex items-center gap-2 shrink-0">
-          <Link
-            to="/dashboard/availability"
-            className="flex items-center gap-1.5 px-3 py-2 bg-violet-900/30 border border-violet-700/30 text-violet-300 text-sm rounded-xl hover:bg-violet-800/40 transition-all"
-          >
-            <Lock size={13} />
-            Block Date
-          </Link>
-          <Link
-            to="/dashboard/appointments"
-            className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm rounded-xl hover:from-violet-700 hover:to-indigo-700 transition-all"
-          >
-            <Plus size={13} />
-            New Slot
-          </Link>
-        </div>
-      </div>
-
-      {/* Quick Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {quickStats.map((stat) => (
-          <div
-            key={stat.label}
-            className="bg-[#1e0d35] border border-violet-900/40 rounded-2xl p-4 hover:border-violet-500/40 transition-all group"
-          >
-            <div className="flex items-start justify-between mb-3">
-              <div className="bg-violet-600/15 rounded-xl p-2">
-                <stat.icon size={16} className="text-violet-400" />
-              </div>
-              <span className="text-emerald-400/80 text-xs flex items-center gap-0.5">
-                <ArrowUpRight size={11} />
-                {stat.trend.split(" ")[0]}
-              </span>
-            </div>
-            <p className="text-white text-xl font-semibold">{stat.value}</p>
-            <p className="text-violet-200/50 text-xs mt-0.5">{stat.sub}</p>
-            <p className="text-violet-400/40 text-xs mt-2">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Today's Schedule */}
         <div className="lg:col-span-2 bg-[#1e0d35] border border-violet-900/40 rounded-2xl p-5">
@@ -340,40 +267,22 @@ export default function DashboardHome() {
 
           {/* Quick Actions */}
           <div className="bg-[#1e0d35] border border-violet-900/40 rounded-2xl p-4">
-            <p className="text-violet-200/50 text-xs mb-3 uppercase tracking-widest">
-              Quick Actions
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              {[
-                { icon: Zap, label: "Upload Flash", to: "/dashboard/flash" },
-                {
-                  icon: MessageSquare,
-                  label: "Messages",
-                  to: "/dashboard/messages",
-                },
-                {
-                  icon: Lock,
-                  label: "Block Dates",
-                  to: "/dashboard/availability",
-                },
-                {
-                  icon: TrendingUp,
-                  label: "Earnings",
-                  to: "/dashboard/earnings",
-                },
-              ].map(({ icon: Icon, label, to }) => (
-                <Link
-                  key={label}
-                  to={to}
-                  className="flex flex-col items-center gap-2 p-3 rounded-xl bg-violet-950/40 border border-violet-900/20 hover:border-violet-700/30 hover:bg-violet-900/20 transition-all text-center"
-                >
-                  <Icon size={16} className="text-violet-400" />
-                  <span className="text-violet-200/60 text-xs leading-tight">
-                    {label}
+            {quickStats.map((stat) => (
+              <div key={stat.label}>
+                <div className="flex items-start justify-between mb-3">
+                  <div className="bg-violet-600/15 rounded-xl p-2">
+                    <stat.icon size={16} className="text-violet-400" />
+                  </div>
+                  <span className="text-emerald-400/80 text-xs flex items-center gap-0.5">
+                    <ArrowUpRight size={11} />
+                    {stat.trend.split(" ")[0]}
                   </span>
-                </Link>
-              ))}
-            </div>
+                </div>
+                <p className="text-white text-xl font-semibold">{stat.value}</p>
+                <p className="text-violet-200/50 text-xs mt-0.5">{stat.sub}</p>
+                <p className="text-violet-400/40 text-xs mt-2">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
