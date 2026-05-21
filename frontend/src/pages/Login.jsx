@@ -33,16 +33,16 @@ export default function Login() {
 
             {/* Heading */}
             <h1 className="text-2xl font-bold text-center text-white mb-2">
-              Welcome Yoshian
+              Sign in to YoshiCat
             </h1>
             <p className="text-center text-slate-400 text-sm mb-6">
-              Sign in to your YoshiCat account
+              Your Vision, Our Craft
             </p>
 
             {/* Google Sign In */}
             <button className="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600/60 hover:border-purple-500/40 text-white py-3 rounded-lg flex items-center justify-center gap-2 mb-4 transition">
               <img src="/googel.png" alt="Google" className="w-5 h-5" />
-              <span className="font-semibold">Sign in with Google</span>
+              <span className="text-lg font-semibold">Continue with Google</span>
             </button>
 
             {/* Divider */}
