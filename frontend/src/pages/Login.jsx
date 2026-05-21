@@ -5,6 +5,10 @@ import StudioSection from "../components/StudioSection";
 import Footer from "../components/Footer";
 
 export default function Login() {
+  const handleGithubLogin = () => {
+    window.location.href = "http://localhost:8000/api/auth/github/redirect";
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-900 text-slate-100 font-sans antialiased selection:bg-violet-500 selection:text-white">
       <Navbar />
@@ -40,9 +44,14 @@ export default function Login() {
             </p>
 
             {/* Google Sign In */}
-            <button className="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600/60 hover:border-purple-500/40 text-white py-3 rounded-lg flex items-center justify-center gap-2 mb-4 transition">
+            <button
+              onClick={handleGithubLogin}
+              className="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600/60 hover:border-purple-500/40 text-white py-3 rounded-lg flex items-center justify-center gap-2 mb-4 transition"
+            >
               <img src="/googel.png" alt="Google" className="w-5 h-5" />
-              <span className="text-lg font-semibold">Continue with Google</span>
+              <span className="text-lg font-semibold">
+                Continue with Google
+              </span>
             </button>
 
             {/* Divider */}
@@ -70,7 +79,6 @@ export default function Login() {
             <div className="mb-2">
               <div className="flex justify-between items-center mb-2">
                 <label className="block text-white text-sm">Password</label>
-                
               </div>
               <div className="relative">
                 <input
@@ -80,14 +88,14 @@ export default function Login() {
                 />
 
                 <div className="pt-3 pl-1">
-                    <a
-                  href="#"
-                  className="text-violet-400 hover:text-violet-300 text-sm"
-                >
-                  Forgot password?
-                </a>
+                  <a
+                    href="#"
+                    className="text-violet-400 hover:text-violet-300 text-sm"
+                  >
+                    Forgot password?
+                  </a>
                 </div>
-                
+
                 <button className="absolute right-3 top-1/3 transform -translate-y-1/2 text-slate-400 hover:text-slate-300">
                   <svg
                     className="w-5 h-5"
@@ -108,11 +116,8 @@ export default function Login() {
                       d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                     />
                   </svg>
-                  
                 </button>
-                
               </div>
-              
             </div>
 
             {/* Log In Button */}

@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('google_id')->nullable()->after('id');
+            $table->string('github_id')->nullable()->after('google_id');
             $table->string('avatar')->nullable();
             $table->string('password')->nullable()->change();
         });
@@ -21,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['google_id', 'avatar']);
+            $table->dropColumn(['google_id', 'github_id', 'avatar']);
             $table->string('password')->nullable(false)->change();
         });
     }

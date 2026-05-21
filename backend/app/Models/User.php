@@ -27,8 +27,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'google_id', // Add this
-        'avatar',    // Add this
+        'google_id',
+        'avatar',
+        'github_id',
     ];
     /**
      * Get the attributes that should be cast.
