@@ -22,8 +22,8 @@ export default function ArtistSidebar() {
   const navigate = useNavigate();
 
   const navItems = [
-    { to: "/", icon: Settings, label: "Customer" },
-    { to: "/pages", icon: LayoutDashboard, label: "Overview", end: true },
+    { to: "/customer", icon: Settings, label: "Customer" },
+    { to: "/artist", icon: LayoutDashboard, label: "Overview", end: true },
   ];
 
   return (

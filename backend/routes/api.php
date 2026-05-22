@@ -2,7 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\SocialAuthController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Middleware\AdminMiddleware; 
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -10,3 +14,9 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/auth/github/redirect', [SocialAuthController::class, 'redirectToGithub']);
 Route::get('/auth/github/callback', [SocialAuthController::class, 'handleGithubCallback']);
+
+Route::post('/auth/login', [AuthController::class, 'login']);
+
+Route::middleware(['auth:sanctum', AdminMiddleware::class])->group(function () {
+    Route::post('/admin/users', [AdminController::class, 'createUser']);
+});
