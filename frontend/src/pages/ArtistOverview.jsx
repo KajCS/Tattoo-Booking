@@ -196,7 +196,7 @@ export default function DashboardHome() {
                   <p className="text-violet-400/40 text-xs">{appt.duration}</p>
                 </div>
                 <div className="w-px h-8 bg-violet-900/40" />
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-xs font-semibold shrink-0">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-xs font-semibold shrink-0">
                   {appt.avatar}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -235,7 +235,7 @@ export default function DashboardHome() {
             <div className="space-y-3">
               {pendingRequests.map((req, i) => (
                 <div key={i} className="flex items-center gap-3 group">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-700 to-indigo-800 flex items-center justify-center text-white text-xs font-semibold shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-linear-to-br from-violet-700 to-indigo-800 flex items-center justify-center text-white text-xs font-semibold shrink-0">
                     {req.avatar}
                   </div>
                   <div className="flex-1 min-w-0">

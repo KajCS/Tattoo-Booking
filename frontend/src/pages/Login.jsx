@@ -18,6 +18,9 @@ export default function Login() {
   const handleGithubLogin = () => {
     window.location.href = "http://localhost:8000/api/auth/github/redirect";
   };
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:8000/api/auth/google/redirect";
+  };
 
   const handleManualLogin = async (e) => {
     e.preventDefault();
@@ -54,11 +57,11 @@ export default function Login() {
       <Navbar />
       <main className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24 flex items-center justify-center min-h-[80vh]">
         <div className="relative w-full max-w-md">
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-purple-600/30 to-transparent blur-md pointer-events-none" />
+          <div className="absolute inset-0 rounded-lg bg-linear-to-br from-purple-600/30 to-transparent blur-md pointer-events-none" />
           <div className="w-full max-w-md bg-slate-900 rounded-lg p-8 border border-purple-600/20 relative z-10">
             {/* Lock Icon */}
             <div className="flex justify-center mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-linear-to-r from-violet-500 to-violet-600 rounded-full flex items-center justify-center">
                 <svg
                   className="w-6 h-6 text-white"
                   fill="none"
@@ -83,10 +86,9 @@ export default function Login() {
               Your Vision, Our Craft
             </p>
 
-            {/* Google / GitHub Sign In */}
             <button
               type="button"
-              onClick={handleGithubLogin}
+              onClick={handleGoogleLogin}
               className="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600/60 hover:border-purple-500/40 text-white py-3 rounded-lg flex items-center justify-center gap-2 mb-4 transition"
             >
               <img src="/googel.png" alt="Google" className="w-5 h-5" />
@@ -155,7 +157,7 @@ export default function Login() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-[25px] transform -translate-y-1/2 text-slate-400 hover:text-slate-300"
+                    className="absolute right-3 top-6.25 transform -translate-y-1/2 text-slate-400 hover:text-slate-300"
                   >
                     {/* Dynamic SVG change based on state */}
                     {showPassword ? (
@@ -201,7 +203,7 @@ export default function Login() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-violet-700 text-white font-semibold py-3 rounded-lg mt-6 transition disabled:opacity-70"
+                className="w-full bg-linear-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-violet-700 text-white font-semibold py-3 rounded-lg mt-6 transition disabled:opacity-70"
               >
                 {isLoading ? "Logging In..." : "Log In"}
               </button>

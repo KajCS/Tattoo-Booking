@@ -10,22 +10,42 @@ class SocialAuthController extends Controller
 {
     public function redirectToGithub()
     {
-        // Redirects the user to GitHub's login screen
         return Socialite::driver('github')->stateless()->redirect();
     }
 
     public function handleGithubCallback()
     {
-        // Grabs the user data coming back from GitHub
         $githubUser = Socialite::driver('github')->stateless()->user();
 
-        // Finds or creates the user in your Supabase Postgres database
         $user = User::updateOrCreate(
-            ['github_id' => $githubUser->id],
+            ['email' => $githubUser->email], 
             [
                 'name' => $githubUser->name ?? $githubUser->nickname,
-                'email' => $githubUser->email,
+                'github_id' => $githubUser->id, 
                 'avatar' => $githubUser->avatar,
+            ]
+        );
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return redirect()->away(env('FRONTEND_URL', 'http://localhost:3000') . '/auth/callback?token=' . $token);
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->stateless()->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        $googleUser = Socialite::driver('google')->stateless()->user();
+
+        $user = User::updateOrCreate(
+            ['email' => $googleUser->email],
+            [
+                'name' => $googleUser->name,
+                'google_id' => $googleUser->id, 
+                'avatar' => $googleUser->avatar,
             ]
         );
 

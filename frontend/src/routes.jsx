@@ -10,6 +10,7 @@ import CustomerDashboard from "./pages/CustomerDashboard";
 // Artist
 import ArtistSidebar from "./components/ArtistSidebar";
 import ArtistOverview from "./pages/ArtistOverview";
+import ArtistAppointments from "./pages/ArtistAppointments";
 
 // Admin
 import AdminDashboard from "./pages/AdminDashboard";
@@ -36,7 +37,10 @@ export const router = createBrowserRouter([
         <ArtistSidebar />
       </ProtectedRoute>
     ),
-    children: [{ index: true, Component: ArtistOverview }],
+    children: [
+      { index: true, Component: ArtistOverview },
+      { path: "appointments", Component: ArtistAppointments },
+    ],
   },
 
   {
