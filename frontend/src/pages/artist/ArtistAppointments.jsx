@@ -193,11 +193,10 @@ const tabs = [
   { key: "no-show", label: "No-Show" },
 ];
 
-export default function Appointments() {
-  const [activeTab, setActiveTab] = useState < Status > "all";
+export default function ArtistAppointments() {
+  const [activeTab, setActiveTab] = useState("all");
   const [search, setSearch] = useState("");
-  const [selected, setSelected] =
-    (useState < (typeof appointments)[0]) | (null > null);
+  const [selected, setSelected] = useState(null);
 
   const filtered = appointments.filter((a) => {
     const matchTab = activeTab === "all" || a.status === activeTab;
