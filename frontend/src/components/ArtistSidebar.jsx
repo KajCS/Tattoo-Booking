@@ -28,7 +28,6 @@ export default function ArtistSidebar() {
     { to: "/artist/clients", icon: Users, label: "Clients" },
     { to: "/artist/portfolio", icon: ImageIcon, label: "Portfolio" },
     { to: "/artist/messages", icon: MessageSquare, label: "Messages" },
-    { to: "/artist/earnings", icon: TrendingUp, label: "Earnings" },
     { to: "/artist/settings", icon: Settings, label: "Settings" },
   ];
 
