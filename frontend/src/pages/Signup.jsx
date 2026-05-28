@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 export default function Signup() {
   // --- Form State ---
   const [formData, setFormData] = useState({
+    name: "",
     username: "",
     email: "",
     password: "",
@@ -36,6 +37,11 @@ export default function Signup() {
       return;
     }
 
+    if (!formData.name.trim()) {
+      setError("Name field is required.");
+      return;
+    }
+
     if (formData.password.length < 8) {
       setError("Password must be at least 8 characters long.");
       return;
@@ -51,6 +57,7 @@ export default function Signup() {
           Accept: "application/json",
         },
         body: JSON.stringify({
+          name: formData.name,
           username: formData.username,
           email: formData.email,
           password: formData.password,
@@ -75,7 +82,6 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-900 text-slate-100 font-sans antialiased selection:bg-violet-500 selection:text-white">
-      <Navbar />
       <main className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24 flex items-center justify-center min-h-[80vh]">
         <div className="relative w-full max-w-md">
           {/* Glow Effect */}
@@ -118,6 +124,37 @@ export default function Signup() {
                   {error}
                 </div>
               )}
+
+              {/* Name Input */}
+              <div className="mb-4">
+                <label className="block text-white text-sm mb-2">
+                  Full Name
+                </label>
+                <div className="relative">
+                  <svg
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="John Doe"
+                    className="w-full bg-slate-900 border border-slate-700 rounded-lg pl-10 pr-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+                  />
+                </div>
+              </div>
 
               {/* Username Input */}
               <div className="mb-4">
@@ -357,7 +394,6 @@ export default function Signup() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
