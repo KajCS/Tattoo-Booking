@@ -1,25 +1,25 @@
-import React from 'react';
-import ArtistCard from './ArtistCard';
+import React from "react";
+import ArtistCard from "./ArtistCard";
 
 // This data can eventually be replaced by an API call to your Laravel backend
 const artists = [
   {
     id: 1,
-    name: 'Benz Pilapil',
-    specialties: ['Traditional', 'Japanese', 'Black & Grey'],
-    image: '../../public/artists/benz.webp',
+    name: "Benz Pilapil",
+    specialties: ["Traditional", "Japanese", "Black & Grey"],
+    image: "../../public/artists/benz.webp",
   },
   {
     id: 2,
-    name: 'Aryll Pilapil',
-    specialties: ['Watercolor', 'Fine Line', 'Botanical'],
-    image: '../../public/artists/aryll.jpg',
+    name: "Aryll Pilapil",
+    specialties: ["Watercolor", "Fine Line", "Botanical"],
+    image: "../../public/artists/aryll.jpg",
   },
   {
     id: 3,
-    name: 'Nestor Tanudtanud',
-    specialties: ['Geometric', 'Neo-Traditional', 'Realism'],
-    image: '../../public/artists/hwizi-1.webp',
+    name: "Nestor Tanudtanud",
+    specialties: ["Geometric", "Neo-Traditional", "Realism"],
+    image: "../../public/artists/hwizi-1.webp",
   },
 ];
 
@@ -28,9 +28,12 @@ export default function ArtistSection() {
     <section id="artists" className="space-y-8">
       {/* Header text group */}
       <div className="text-center space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Meet Our <span className="text-violet-400">Artist</span></h2>
+        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Meet Our <span className="text-violet-400">Artist</span>
+        </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
-          Browse our talented artists and find the perfect match for your next tattoo.
+          Browse our talented artists and find the perfect match for your next
+          tattoo.
         </p>
       </div>
 

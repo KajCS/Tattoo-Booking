@@ -301,7 +301,7 @@ export default function DashboardHome() {
               </p>
             </div>
             <Link
-              to="/dashboard/availability"
+              to="/artist/availability"
               className="text-violet-400 text-xs flex items-center gap-1 hover:text-violet-300"
             >
               Full calendar <ChevronRight size={13} />
