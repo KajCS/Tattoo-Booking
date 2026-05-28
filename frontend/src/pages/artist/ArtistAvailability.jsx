@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Lock, Plane, ToggleLeft, ToggleRight } from "lucide-react";
 import { fetchArtistSlots } from "../../services/api"; // 👈 Import your new fake AP
 
-// Components
 import CalendarWidget from "../../components/CalendarWidget";
 import {
   RecurringHoursCard,
@@ -11,7 +10,6 @@ import {
 } from "../../components/SidebarConfigs";
 import { BlockModal } from "../../components/BlockModal";
 
-// Utils
 import {
   playfair,
   initialSlots,
@@ -20,6 +18,7 @@ import {
 } from "../../utils/constants";
 
 export default function ArtistAvailability() {
+  const [slots, setSlots] = useState(initialSlots);
   // --- Artist Specific State ---
   const [slots, setSlots] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -43,13 +42,11 @@ export default function ArtistAvailability() {
     loadData();
   }, []);
 
-  // --- Config State ---
   const [recurringDays, setRecurringDays] = useState(recurringDefaults);
   const [bufferTime, setBufferTime] = useState(15);
   const [sessionDurations] = useState([1, 1.5, 2, 3, 4, 5]);
   const [selectedDurations, setSelectedDurations] = useState([1, 2, 3]);
 
-  // Handle toggling slots (Passed down to CalendarWidget)
   const handleSlotToggle = (key) => {
     setSlots((prev) => {
       const cur = prev[key] || "off";
@@ -64,11 +61,11 @@ export default function ArtistAvailability() {
   };
 
   return (
-    <div className="p-6 max-w-[1400px] space-y-5">
+    <div className="p-6 max-w-[1400px] mx-auto space-y-5">
       {/* Header Section */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 style={playfair} className="text-white mb-1">
+          <h1 style={playfair} className="text-white mb-1 text-3xl">
             Availability
           </h1>
           <p className="text-violet-200/40 text-sm">
@@ -117,6 +114,11 @@ export default function ArtistAvailability() {
       <div className="grid grid-cols-1 xl:grid-cols-4 gap-5">
         {/* Left Side: The Extracted Calendar Widget */}
         <div className="xl:col-span-3">
+          <CalendarWidget
+            slots={slots}
+            onSlotClick={handleSlotToggle}
+            readOnly={vacationMode}
+          />
           {/* Show a loading screen while waiting for the fake API */}
           {isLoading ? (
             <div className="bg-[#1e0d35] border border-violet-900/40 rounded-2xl h-[600px] flex items-center justify-center">

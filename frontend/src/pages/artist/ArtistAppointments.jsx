@@ -143,10 +143,10 @@ export default function ArtistAppointments() {
   });
 
   return (
-    <div className="p-6 max-w-[1400px]">
+    <div className="p-6 max-w-[1400px] mx-auto">
       {/* Header */}
       <div className="mb-6">
-        <h1 style={playfair} className="text-white mb-1">
+        <h1 style={playfair} className="text-white mb-1 text-3xl">
           Appointments
         </h1>
         <p className="text-violet-200/40 text-sm">

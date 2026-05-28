@@ -14,13 +14,33 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('phone', 20)->nullable();
+            $table->string('password')->nullable(); // Nullable because of Google OAuth login
+            
+            // RBAC Core Role
+            $table->enum('role', ['customer', 'artist', 'admin'])->default('customer');
+
+            // Google OAuth Integration
+            $table->string('google_id')->nullable();
+            $table->text('google_token')->nullable();
+            $table->text('oauth_refresh_token')->nullable();
+            
+            // Profile Basics
+            $table->text('avatar_url')->nullable();
+            $table->text('bio')->nullable();
+            
+            // System Flags
+            $table->boolean('is_active')->default(true);
+            $table->timestamp('last_seen_at')->nullable();
+            
             $table->rememberToken();
             $table->timestamps();
         });
 
+        // Keeps default Laravel session/password reset tables intact below
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

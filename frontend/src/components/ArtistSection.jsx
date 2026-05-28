@@ -1,7 +1,6 @@
 import React from "react";
 import ArtistCard from "./ArtistCard";
 
-// This data can eventually be replaced by an API call to your Laravel backend
 const artists = [
   {
     id: 1,
