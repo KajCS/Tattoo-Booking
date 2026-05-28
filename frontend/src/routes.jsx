@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import AuthCallback from "./pages/AuthCallback";
 import DashboardDispatcher from "./pages/DashboardDispatcher";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -17,6 +18,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 
 export const router = createBrowserRouter([
   { path: "/", Component: Login },
+  { path: "/signup", Component: Signup },
   { path: "/auth/callback", Component: AuthCallback },
 
   { path: "/dashboard", Component: DashboardDispatcher },
@@ -26,6 +28,7 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute allowedRole="customer">
         <CustomerDashboard />
+        
       </ProtectedRoute>
     ),
   },
