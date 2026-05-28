@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Lock, Plane, ToggleLeft, ToggleRight } from "lucide-react";
 
-// Components
 import CalendarWidget from "../../components/CalendarWidget";
 import {
   RecurringHoursCard,
@@ -10,7 +9,6 @@ import {
 } from "../../components/SidebarConfigs";
 import { BlockModal } from "../../components/BlockModal";
 
-// Utils
 import {
   playfair,
   initialSlots,
@@ -19,18 +17,15 @@ import {
 } from "../../utils/constants";
 
 export default function ArtistAvailability() {
-  // --- Artist Specific State ---
   const [slots, setSlots] = useState(initialSlots);
   const [vacationMode, setVacationMode] = useState(false);
   const [showBlockModal, setShowBlockModal] = useState(false);
 
-  // --- Config State ---
   const [recurringDays, setRecurringDays] = useState(recurringDefaults);
   const [bufferTime, setBufferTime] = useState(15);
   const [sessionDurations] = useState([1, 1.5, 2, 3, 4, 5]);
   const [selectedDurations, setSelectedDurations] = useState([1, 2, 3]);
 
-  // Handle toggling slots (Passed down to CalendarWidget)
   const handleSlotToggle = (key) => {
     setSlots((prev) => {
       const cur = prev[key] || "off";
@@ -45,11 +40,11 @@ export default function ArtistAvailability() {
   };
 
   return (
-    <div className="p-6 max-w-[1400px] space-y-5">
+    <div className="p-6 max-w-[1400px] mx-auto space-y-5">
       {/* Header Section */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 style={playfair} className="text-white mb-1">
+          <h1 style={playfair} className="text-white mb-1 text-3xl">
             Availability
           </h1>
           <p className="text-violet-200/40 text-sm">
@@ -101,7 +96,7 @@ export default function ArtistAvailability() {
           <CalendarWidget
             slots={slots}
             onSlotClick={handleSlotToggle}
-            readOnly={vacationMode} // Optional logic: freeze calendar edits if on vacation
+            readOnly={vacationMode}
           />
         </div>
 

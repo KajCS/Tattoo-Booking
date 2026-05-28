@@ -77,25 +77,17 @@ const ClientDetailPanel = ({ selected, setSelected, clients }) => {
       {/* Card Body */}
       <div className="p-5 space-y-5">
         {/* Micro Stats Grid */}
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 gap-2">
           {[
             {
-              icon: Calendar,
               label: "Sessions",
               value: selected.sessions,
             },
-            { icon: DollarSign, label: "Spent", value: selected.spent },
-            {
-              icon: ImageIcon,
-              label: "Refs",
-              value: selected.inspirations,
-            },
-          ].map(({ icon: Icon, label, value }) => (
+          ].map(({ label, value }) => (
             <div
               key={label}
               className="bg-violet-950/40 border border-violet-900/30 rounded-xl p-2.5 text-center shadow-inner"
             >
-              <Icon size={14} className="text-violet-400 mx-auto mb-1" />
               <p className="text-white text-sm font-semibold tracking-tight">
                 {value}
               </p>
@@ -160,20 +152,6 @@ const ClientDetailPanel = ({ selected, setSelected, clients }) => {
             </p>
           </div>
         )}
-
-        {/* Consent Signed Status */}
-        <div
-          className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-xs font-medium shadow-inner ${
-            selected.consentSigned
-              ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
-              : "bg-red-500/10 border-red-500/20 text-red-400 animate-pulse"
-          }`}
-        >
-          <FileText size={14} />
-          {selected.consentSigned
-            ? "Liability Waiver & Consent Active"
-            : "Waiver Outstanding — Signature Required"}
-        </div>
 
         {/* Private Session Notes */}
         {selected.notes && (

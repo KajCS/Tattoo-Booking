@@ -20,10 +20,6 @@ const clients = [
     tags: ["repeat"],
     lastSession: "May 19, 2026",
     nextSession: "Aug 12, 2026",
-    allergyNotes: "Mild latex sensitivity — use nitrile gloves",
-    consentSigned: true,
-    favorite: true,
-    blacklisted: false,
     notes:
       "Extremely loyal client. Always tips well. Interested in completing sleeve.",
     inspirations: 8,
@@ -41,10 +37,6 @@ const clients = [
     tags: ["repeat"],
     lastSession: "May 19, 2026",
     nextSession: "Jul 8, 2026",
-    allergyNotes: "",
-    consentSigned: true,
-    favorite: false,
-    blacklisted: false,
     notes:
       "Very detail-oriented. Sends lots of references. Prefers morning slots.",
     inspirations: 12,
@@ -62,10 +54,6 @@ const clients = [
     tags: ["new"],
     lastSession: "—",
     nextSession: "May 19, 2026",
-    allergyNotes: "No known allergies",
-    consentSigned: false,
-    favorite: false,
-    blacklisted: false,
     notes: "First-time client. Needs consent form before session.",
     inspirations: 3,
   },
@@ -82,10 +70,6 @@ const clients = [
     tags: ["repeat"],
     lastSession: "Feb 2026",
     nextSession: "May 22, 2026",
-    allergyNotes: "Sensitive to certain inks — patch test required",
-    consentSigned: true,
-    favorite: false,
-    blacklisted: false,
     notes: "Working on a large back piece. Very patient, easy to work with.",
     inspirations: 6,
   },
@@ -102,10 +86,6 @@ const clients = [
     tags: ["repeat"],
     lastSession: "May 14, 2026",
     nextSession: "Sep 2026",
-    allergyNotes: "",
-    consentSigned: true,
-    favorite: true,
-    blacklisted: false,
     notes: "Top client. Has referred 3 friends. Left multiple 5-star reviews.",
     inspirations: 15,
   },
@@ -122,10 +102,6 @@ const clients = [
     tags: ["no-show"],
     lastSession: "May 10, 2026",
     nextSession: "—",
-    allergyNotes: "",
-    consentSigned: true,
-    favorite: false,
-    blacklisted: false,
     notes:
       "No-showed last appointment. Deposit collected. Consider requiring full payment upfront.",
     inspirations: 2,
@@ -190,7 +166,11 @@ export default function ArtistClients() {
 
         {/* Detail Panel */}
         <div className="shrink-0 w-full lg:w-[320px] xl:w-[360px]">
-          <ClientDetailPanel selected={selected} setSelected={setSelected} clients={clients} />
+          <ClientDetailPanel
+            selected={selected}
+            setSelected={setSelected}
+            clients={clients}
+          />
         </div>
       </div>
     </div>
