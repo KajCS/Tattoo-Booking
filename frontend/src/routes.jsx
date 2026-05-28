@@ -1,54 +1,66 @@
 import { createBrowserRouter } from "react-router";
+
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import AuthCallback from "./pages/AuthCallback";
 import DashboardDispatcher from "./pages/DashboardDispatcher";
-import ProtectedRoute from "./components/ProtectedRoute";
-
-// Customer
 import CustomerDashboard from "./pages/CustomerDashboard";
-
-// Artist
-import ArtistSidebar from "./components/ArtistSidebar";
-import ArtistOverview from "./pages/ArtistOverview";
-import ArtistAppointments from "./pages/ArtistAppointments";
-
-// Admin
 import AdminDashboard from "./pages/AdminDashboard";
 
-export const router = createBrowserRouter([
-  { path: "/", Component: Login },
-  { path: "/auth/callback", Component: AuthCallback },
+import ProtectedRoute from "./components/ProtectedRoute";
+import ArtistSidebar from "./components/ArtistSidebar";
 
-  { path: "/dashboard", Component: DashboardDispatcher },
+import { artistRoutes } from "./config/artistRoutes";
+import { customerRoutes } from "./config/customerRoutes";
+import CustomerBooking from "./pages/CustomerBooking";
+
+const protectedRoute = (role, element) => (
+  <ProtectedRoute allowedRole={role}>{element}</ProtectedRoute>
+);
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Login,
+  },
+
+  { path: "/signup", Component: Signup },
 
   {
-    path: "/customer",
-    element: (
-      <ProtectedRoute allowedRole="customer">
-        <CustomerDashboard />
-      </ProtectedRoute>
-    ),
+    path: "/auth/callback",
+    Component: AuthCallback,
+  },
+  {
+    path: "/dashboard",
+    Component: DashboardDispatcher,
   },
 
   {
-    path: "/artist",
-    element: (
-      <ProtectedRoute allowedRole="artist">
-        <ArtistSidebar />
-      </ProtectedRoute>
-    ),
+    path: "/customer",
     children: [
-      { index: true, Component: ArtistOverview },
-      { path: "appointments", Component: ArtistAppointments },
+      {
+        index: true,
+        element: protectedRoute("customer", <CustomerDashboard />),
+      },
+      {
+        path: "booking",
+        element: protectedRoute("customer", <CustomerBooking />),
+      },
+      {
+        path: "booking/:artistId",
+        element: protectedRoute("customer", <CustomerBooking />),
+      },
     ],
   },
 
   {
+    path: "/artist",
+    element: protectedRoute("artist", <ArtistSidebar />),
+    children: artistRoutes,
+  },
+
+  {
     path: "/admin",
-    element: (
-      <ProtectedRoute allowedRole="admin">
-        <AdminDashboard />
-      </ProtectedRoute>
-    ),
+    element: protectedRoute("admin", <AdminDashboard />),
   },
 ]);

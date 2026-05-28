@@ -22,8 +22,13 @@ export default function ArtistSidebar() {
   const navigate = useNavigate();
 
   const navItems = [
-    { to: "/customer", icon: Settings, label: "Customer" },
     { to: "/artist", icon: LayoutDashboard, label: "Overview", end: true },
+    { to: "/artist/appointments", icon: CalendarDays, label: "Appointments" },
+    { to: "/artist/availability", icon: Clock, label: "Availability" },
+    { to: "/artist/clients", icon: Users, label: "Clients" },
+    { to: "/artist/portfolio", icon: ImageIcon, label: "Portfolio" },
+    { to: "/artist/messages", icon: MessageSquare, label: "Messages" },
+    { to: "/artist/settings", icon: Settings, label: "Settings" },
   ];
 
   return (
@@ -114,28 +119,6 @@ export default function ArtistSidebar() {
       </aside>
 
       <div className="flex-1 flex flex-col min-w-0">
-        <header className="sticky top-0 z-20 bg-[#120820]/80 backdrop-blur-xl border-b border-violet-900/20 px-6 py-3 flex items-center gap-4">
-          <div className="flex-1 max-w-sm">
-            <div className="flex items-center gap-2 bg-violet-900/20 border border-violet-900/30 rounded-xl px-3 py-2">
-              <Search size={14} className="text-violet-400/60" />
-              <input
-                type="text"
-                placeholder="Search anything..."
-                className="bg-transparent text-sm text-violet-200/70 placeholder:text-violet-400/40 outline-none flex-1"
-              />
-            </div>
-          </div>
-          <div className="ml-auto flex items-center gap-3">
-            <button className="relative text-violet-200/50 hover:text-violet-300 transition-colors p-2 rounded-xl hover:bg-violet-900/20">
-              <Bell size={18} />
-              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-violet-400 rounded-full" />
-            </button>
-            <div className="w-8 h-8 rounded-full bg-linear-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-xs font-semibold cursor-pointer">
-              YM
-            </div>
-          </div>
-        </header>
-
         <main className="flex-1 overflow-auto">
           <Outlet />
         </main>
